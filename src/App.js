@@ -1,31 +1,27 @@
 import {Component} from 'react';
-
 import logo from './logo.svg';
 import './App.css';
+import MARVEL_API_KEY from "./keys.js";
 
 
 class App extends Component {
   constructor(){
     super();
+
     this.state = { 
-      monsters:[
-      { name: 'Ironman',
-      id: 'V123abc',
-      },
-      {
-        name: 'Black Panther',
-        id: '124abd'
-      },
-      {
-        name: 'Thor',
-        id: '134acd'
-      },
-      {
-        name: 'Captain America',
-        id: '234bcd'
-      },
-  ]
-    }
+      monsters:[],
+    };
+  }
+  componentDidMount(){
+    fetch(`https://jsonplaceholder.typicode.com/users`)
+    .then(response => response.json())
+    .then(users => 
+    this.setState(() => {
+      return {monsters: users}
+    },
+    ()=>{
+      console.log(this.state)
+    }))
   }
   render(){
     return (
