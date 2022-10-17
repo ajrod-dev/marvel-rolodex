@@ -11,8 +11,10 @@ class App extends Component {
     this.state = { 
       monsters:[],
     };
+    console.log('constructor')
   }
   componentDidMount(){
+    console.log('component did mount')
     fetch(`https://jsonplaceholder.typicode.com/users`)
     .then(response => response.json())
     .then(users => 
@@ -24,6 +26,7 @@ class App extends Component {
     }))
   }
   render(){
+    console.log('render')
     return (
       <div className="App">
         {this.state.monsters.map((monster)=> {
