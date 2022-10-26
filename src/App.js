@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import './App.css';
 import MARVEL_API_KEY from "./keys.js";
-
+import CardList from './components/card-list/card-list.component';
 
 class App extends Component {
   constructor(){
@@ -48,9 +48,15 @@ class App extends Component {
         <input className='search-box' type='search' placeholder='Search Monsters' 
         onChange={onSearchChange}
       />
-        {filteredMonsters.map((monster)=> {
+        {/* {filteredMonsters.map((monster)=> {
             return (<h1 key={monster.id}>{monster.name}</h1> )
-          })}
+          })} */}
+
+           {/* {filteredMonsters.map((monster)=> {
+            return (<h1 key={monster.id}>{monster.name}</h1> )
+          })} */}
+
+          <CardList />
       </div>
     );
   }
